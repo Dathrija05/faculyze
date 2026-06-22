@@ -1,0 +1,291 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="702pt" height="1117pt" viewBox="0.00 0.00 702.00 1117.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1113.04)">
+<title>Faculyze</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1113.04 697.78,-1113.04 697.78,4 -4,4"/>
+<!-- Start -->
+<g id="node1" class="node">
+<title>Start</title>
+<ellipse fill="#ddeeff" stroke="black" cx="298.71" cy="-1091.04" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="298.71" y="-1087.44" font-family="Helvetica,sans-Serif" font-size="12.00">Start</text>
+</g>
+<!-- Input -->
+<g id="node3" class="node">
+<title>Input</title>
+<polygon fill="none" stroke="black" points="391.44,-1036.04 205.98,-1036.04 205.98,-999.24 391.44,-999.24 391.44,-1036.04"/>
+<text xml:space="preserve" text-anchor="middle" x="298.71" y="-1021.24" font-family="Helvetica,sans-Serif" font-size="12.00">Input: Student feedback dataset</text>
+<text xml:space="preserve" text-anchor="middle" x="298.71" y="-1006.84" font-family="Helvetica,sans-Serif" font-size="12.00">(collected from website)</text>
+</g>
+<!-- Start&#45;&gt;Input -->
+<g id="edge1" class="edge">
+<title>Start-&gt;Input</title>
+<path fill="none" stroke="black" d="M298.71,-1072.76C298.71,-1065.3 298.71,-1056.36 298.71,-1047.91"/>
+<polygon fill="black" stroke="black" points="302.21,-1048.03 298.71,-1038.03 295.21,-1048.03 302.21,-1048.03"/>
+</g>
+<!-- End -->
+<g id="node2" class="node">
+<title>End</title>
+<ellipse fill="#ddeeff" stroke="black" cx="331.71" cy="-250.4" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="331.71" y="-246.8" font-family="Helvetica,sans-Serif" font-size="12.00">End</text>
+</g>
+<!-- Validate -->
+<g id="node4" class="node">
+<title>Validate</title>
+<polygon fill="none" stroke="black" points="298.71,-962.24 136.67,-925.44 298.71,-888.64 460.74,-925.44 298.71,-962.24"/>
+<text xml:space="preserve" text-anchor="middle" x="298.71" y="-929.04" font-family="Helvetica,sans-Serif" font-size="12.00">Data Quality OK?</text>
+<text xml:space="preserve" text-anchor="middle" x="298.71" y="-914.64" font-family="Helvetica,sans-Serif" font-size="12.00">(format, nulls, corrupt rows)</text>
+</g>
+<!-- Input&#45;&gt;Validate -->
+<g id="edge2" class="edge">
+<title>Input-&gt;Validate</title>
+<path fill="none" stroke="black" d="M298.71,-998.82C298.71,-991.53 298.71,-982.71 298.71,-973.78"/>
+<polygon fill="black" stroke="black" points="302.21,-974.02 298.71,-964.02 295.21,-974.02 302.21,-974.02"/>
+</g>
+<!-- IfFix -->
+<g id="node5" class="node">
+<title>IfFix</title>
+<polygon fill="none" stroke="black" points="372.73,-839.44 166.69,-839.44 166.69,-788.24 372.73,-788.24 372.73,-839.44"/>
+<text xml:space="preserve" text-anchor="middle" x="269.71" y="-824.64" font-family="Helvetica,sans-Serif" font-size="12.00">Fix minor issues</text>
+<text xml:space="preserve" text-anchor="middle" x="269.71" y="-810.24" font-family="Helvetica,sans-Serif" font-size="12.00">(remove corrupt rows / simple fixes)</text>
+<text xml:space="preserve" text-anchor="middle" x="269.71" y="-795.84" font-family="Helvetica,sans-Serif" font-size="12.00">(then continue)</text>
+</g>
+<!-- Validate&#45;&gt;IfFix -->
+<g id="edge4" class="edge">
+<title>Validate-&gt;IfFix</title>
+<path fill="none" stroke="black" d="M279.09,-892.7C275.64,-885.67 272.54,-878.1 270.65,-870.64 269.08,-864.48 268.26,-857.81 267.9,-851.3"/>
+<polygon fill="black" stroke="black" points="271.4,-851.34 267.72,-841.4 264.4,-851.47 271.4,-851.34"/>
+<text xml:space="preserve" text-anchor="middle" x="277.68" y="-860.74" font-family="Helvetica,sans-Serif" font-size="11.00">No</text>
+</g>
+<!-- LabelGen -->
+<g id="node6" class="node">
+<title>LabelGen</title>
+<polygon fill="none" stroke="black" points="606.75,-832.24 390.67,-832.24 390.67,-795.44 606.75,-795.44 606.75,-832.24"/>
+<text xml:space="preserve" text-anchor="middle" x="498.71" y="-817.44" font-family="Helvetica,sans-Serif" font-size="12.00">Generate target label</text>
+<text xml:space="preserve" text-anchor="middle" x="498.71" y="-803.04" font-family="Helvetica,sans-Serif" font-size="12.00">(mean(Q1..Q28) → bin into 3 classes)</text>
+</g>
+<!-- Validate&#45;&gt;LabelGen -->
+<g id="edge3" class="edge">
+<title>Validate:s-&gt;LabelGen</title>
+<path fill="none" stroke="black" d="M298.71,-888.64C298.71,-874.95 365.52,-852.43 421.91,-835.87"/>
+<polygon fill="black" stroke="black" points="422.59,-839.31 431.21,-833.16 420.63,-832.59 422.59,-839.31"/>
+<text xml:space="preserve" text-anchor="middle" x="361.82" y="-860.74" font-family="Helvetica,sans-Serif" font-size="11.00">Yes</text>
+</g>
+<!-- IfFix&#45;&gt;Validate -->
+<g id="edge5" class="edge">
+<title>IfFix-&gt;Validate</title>
+<path fill="none" stroke="black" d="M279.15,-839.9C281.13,-845.62 283.11,-851.7 284.71,-857.44 286.62,-864.28 288.4,-871.57 290,-878.73"/>
+<polygon fill="black" stroke="black" points="286.54,-879.28 292.06,-888.32 293.39,-877.81 286.54,-879.28"/>
+</g>
+<!-- Chi -->
+<g id="node7" class="node">
+<title>Chi</title>
+<polygon fill="none" stroke="black" points="465.4,-751.24 346.01,-751.24 346.01,-714.44 465.4,-714.44 465.4,-751.24"/>
+<text xml:space="preserve" text-anchor="middle" x="405.71" y="-736.44" font-family="Helvetica,sans-Serif" font-size="12.00">Chi-Square ranking</text>
+<text xml:space="preserve" text-anchor="middle" x="405.71" y="-722.04" font-family="Helvetica,sans-Serif" font-size="12.00">(top-k list)</text>
+</g>
+<!-- LabelGen&#45;&gt;Chi -->
+<g id="edge6" class="edge">
+<title>LabelGen-&gt;Chi</title>
+<path fill="none" stroke="black" d="M478.07,-795.31C465.51,-784.65 449.27,-770.85 435.36,-759.03"/>
+<polygon fill="black" stroke="black" points="437.65,-756.39 427.77,-752.58 433.12,-761.72 437.65,-756.39"/>
+</g>
+<!-- DT -->
+<g id="node8" class="node">
+<title>DT</title>
+<polygon fill="none" stroke="black" points="636.4,-751.24 483.02,-751.24 483.02,-714.44 636.4,-714.44 636.4,-751.24"/>
+<text xml:space="preserve" text-anchor="middle" x="559.71" y="-736.44" font-family="Helvetica,sans-Serif" font-size="12.00">Decision-Tree importance</text>
+<text xml:space="preserve" text-anchor="middle" x="559.71" y="-722.04" font-family="Helvetica,sans-Serif" font-size="12.00">(top-k list)</text>
+</g>
+<!-- LabelGen&#45;&gt;DT -->
+<g id="edge7" class="edge">
+<title>LabelGen-&gt;DT</title>
+<path fill="none" stroke="black" d="M512.25,-795.31C520.17,-785.05 530.33,-771.9 539.21,-760.39"/>
+<polygon fill="black" stroke="black" points="541.73,-762.85 545.07,-752.8 536.19,-758.57 541.73,-762.85"/>
+</g>
+<!-- Disjoint -->
+<g id="node9" class="node">
+<title>Disjoint</title>
+<polygon fill="none" stroke="black" points="587.09,-677.44 376.33,-677.44 376.33,-640.64 587.09,-640.64 587.09,-677.44"/>
+<text xml:space="preserve" text-anchor="middle" x="481.71" y="-662.64" font-family="Helvetica,sans-Serif" font-size="12.00">Enforce disjointness</text>
+<text xml:space="preserve" text-anchor="middle" x="481.71" y="-648.24" font-family="Helvetica,sans-Serif" font-size="12.00">(resolve overlaps → unique features)</text>
+</g>
+<!-- Chi&#45;&gt;Disjoint -->
+<g id="edge8" class="edge">
+<title>Chi-&gt;Disjoint</title>
+<path fill="none" stroke="black" d="M424.49,-714.09C433.63,-705.46 444.77,-694.94 454.79,-685.47"/>
+<polygon fill="black" stroke="black" points="456.91,-688.29 461.77,-678.88 452.1,-683.2 456.91,-688.29"/>
+</g>
+<!-- DT&#45;&gt;Disjoint -->
+<g id="edge9" class="edge">
+<title>DT-&gt;Disjoint</title>
+<path fill="none" stroke="black" d="M540.43,-714.09C531.05,-705.46 519.61,-694.94 509.33,-685.47"/>
+<polygon fill="black" stroke="black" points="511.88,-683.06 502.15,-678.86 507.14,-688.21 511.88,-683.06"/>
+</g>
+<!-- HybridLoopStart -->
+<g id="node10" class="node">
+<title>HybridLoopStart</title>
+<ellipse fill="none" stroke="black" cx="481.71" cy="-577.62" rx="77.34" ry="26.02"/>
+<text xml:space="preserve" text-anchor="middle" x="481.71" y="-581.22" font-family="Helvetica,sans-Serif" font-size="12.00">Hybrid ratios loop</text>
+<text xml:space="preserve" text-anchor="middle" x="481.71" y="-566.82" font-family="Helvetica,sans-Serif" font-size="12.00">(r = 0:10 → 10:0)</text>
+</g>
+<!-- Disjoint&#45;&gt;HybridLoopStart -->
+<g id="edge10" class="edge">
+<title>Disjoint-&gt;HybridLoopStart</title>
+<path fill="none" stroke="black" d="M481.71,-640.42C481.71,-632.98 481.71,-624.03 481.71,-615.28"/>
+<polygon fill="black" stroke="black" points="485.21,-615.55 481.71,-605.55 478.21,-615.55 485.21,-615.55"/>
+</g>
+<!-- HybridGen -->
+<g id="node11" class="node">
+<title>HybridGen</title>
+<polygon fill="none" stroke="black" points="301.76,-502.4 103.65,-502.4 103.65,-465.6 301.76,-465.6 301.76,-502.4"/>
+<text xml:space="preserve" text-anchor="middle" x="202.71" y="-487.6" font-family="Helvetica,sans-Serif" font-size="12.00">Generate hybrid set of 10 features</text>
+<text xml:space="preserve" text-anchor="middle" x="202.71" y="-473.2" font-family="Helvetica,sans-Serif" font-size="12.00">(r Chi : 10-r DT, unique)</text>
+</g>
+<!-- HybridLoopStart&#45;&gt;HybridGen -->
+<g id="edge11" class="edge">
+<title>HybridLoopStart-&gt;HybridGen</title>
+<path fill="none" stroke="black" d="M427.25,-558.74C381.55,-543.73 316.15,-522.25 267.71,-506.35"/>
+<polygon fill="black" stroke="black" points="269.06,-503.1 258.46,-503.31 266.87,-509.76 269.06,-503.1"/>
+</g>
+<!-- RetrainFinal -->
+<g id="node18" class="node">
+<title>RetrainFinal</title>
+<polygon fill="none" stroke="black" points="476.07,-502.4 331.35,-502.4 331.35,-465.6 476.07,-465.6 476.07,-502.4"/>
+<text xml:space="preserve" text-anchor="middle" x="403.71" y="-487.6" font-family="Helvetica,sans-Serif" font-size="12.00">Retrain final model</text>
+<text xml:space="preserve" text-anchor="middle" x="403.71" y="-473.2" font-family="Helvetica,sans-Serif" font-size="12.00">on best hybrid (full train)</text>
+</g>
+<!-- HybridLoopStart&#45;&gt;RetrainFinal -->
+<g id="edge20" class="edge">
+<title>HybridLoopStart-&gt;RetrainFinal</title>
+<path fill="none" stroke="black" d="M456.45,-552.7C450.44,-546.65 444.19,-540.04 438.72,-533.6 432.98,-526.85 427.18,-519.2 421.99,-512.01"/>
+<polygon fill="black" stroke="black" points="424.86,-510 416.24,-503.84 419.14,-514.03 424.86,-510"/>
+<text xml:space="preserve" text-anchor="middle" x="486.71" y="-523.7" font-family="Helvetica,sans-Serif" font-size="11.00">All ratios processed</text>
+</g>
+<!-- SaveHybrid -->
+<g id="node12" class="node">
+<title>SaveHybrid</title>
+<polygon fill="none" stroke="black" points="119.07,-428.6 6.35,-428.6 6.35,-391.8 125.07,-391.8 125.07,-422.6 119.07,-428.6"/>
+<polyline fill="none" stroke="black" points="119.07,-428.6 119.07,-422.6"/>
+<polyline fill="none" stroke="black" points="125.07,-422.6 119.07,-422.6"/>
+<text xml:space="preserve" text-anchor="middle" x="65.71" y="-413.8" font-family="Helvetica,sans-Serif" font-size="12.00">Save hybrid variant</text>
+<text xml:space="preserve" text-anchor="middle" x="65.71" y="-399.4" font-family="Helvetica,sans-Serif" font-size="12.00">(ID, feature list)</text>
+</g>
+<!-- HybridGen&#45;&gt;SaveHybrid -->
+<g id="edge12" class="edge">
+<title>HybridGen-&gt;SaveHybrid</title>
+<path fill="none" stroke="black" d="M168.84,-465.25C150.98,-455.89 128.84,-444.29 109.67,-434.24"/>
+<polygon fill="black" stroke="black" points="111.48,-431.24 101,-429.7 108.23,-437.44 111.48,-431.24"/>
+</g>
+<!-- Train -->
+<g id="node13" class="node">
+<title>Train</title>
+<polygon fill="none" stroke="black" points="176.39,-354.8 55.03,-354.8 55.03,-318 176.39,-318 176.39,-354.8"/>
+<text xml:space="preserve" text-anchor="middle" x="115.71" y="-340" font-family="Helvetica,sans-Serif" font-size="12.00">Train Decision-Tree</text>
+<text xml:space="preserve" text-anchor="middle" x="115.71" y="-325.6" font-family="Helvetica,sans-Serif" font-size="12.00">(cross-validation)</text>
+</g>
+<!-- SaveHybrid&#45;&gt;Train -->
+<g id="edge13" class="edge">
+<title>SaveHybrid-&gt;Train</title>
+<path fill="none" stroke="black" d="M78.07,-391.45C83.76,-383.28 90.64,-373.4 96.95,-364.34"/>
+<polygon fill="black" stroke="black" points="99.78,-366.39 102.63,-356.19 94.04,-362.39 99.78,-366.39"/>
+</g>
+<!-- Eval -->
+<g id="node14" class="node">
+<title>Eval</title>
+<polygon fill="none" stroke="black" points="283.42,-268.8 0,-268.8 0,-232 283.42,-232 283.42,-268.8"/>
+<text xml:space="preserve" text-anchor="middle" x="141.71" y="-254" font-family="Helvetica,sans-Serif" font-size="12.00">Evaluate metrics</text>
+<text xml:space="preserve" text-anchor="middle" x="141.71" y="-239.6" font-family="Helvetica,sans-Serif" font-size="12.00">(Accuracy, Precision, Recall, F1, ConfusionMatrix)</text>
+</g>
+<!-- Train&#45;&gt;Eval -->
+<g id="edge14" class="edge">
+<title>Train-&gt;Eval</title>
+<path fill="none" stroke="black" d="M121.22,-317.59C124.6,-306.67 129,-292.45 132.86,-279.99"/>
+<polygon fill="black" stroke="black" points="136.14,-281.22 135.75,-270.63 129.45,-279.15 136.14,-281.22"/>
+</g>
+<!-- Log -->
+<g id="node15" class="node">
+<title>Log</title>
+<polygon fill="none" stroke="black" points="433.38,-195 312.04,-195 312.04,-158.2 439.38,-158.2 439.38,-189 433.38,-195"/>
+<polyline fill="none" stroke="black" points="433.38,-195 433.38,-189"/>
+<polyline fill="none" stroke="black" points="439.38,-189 433.38,-189"/>
+<text xml:space="preserve" text-anchor="middle" x="375.71" y="-180.2" font-family="Helvetica,sans-Serif" font-size="12.00">Log results</text>
+<text xml:space="preserve" text-anchor="middle" x="375.71" y="-165.8" font-family="Helvetica,sans-Serif" font-size="12.00">(hybrid ID → metrics)</text>
+</g>
+<!-- Eval&#45;&gt;Log -->
+<g id="edge15" class="edge">
+<title>Eval-&gt;Log</title>
+<path fill="none" stroke="black" d="M199.85,-231.56C232.22,-221.63 272.71,-209.2 306.68,-198.78"/>
+<polygon fill="black" stroke="black" points="307.48,-202.2 316.01,-195.92 305.42,-195.5 307.48,-202.2"/>
+</g>
+<!-- Compare -->
+<g id="node16" class="node">
+<title>Compare</title>
+<polygon fill="none" stroke="black" points="498.71,-121.2 378.22,-103.2 498.71,-85.2 619.2,-103.2 498.71,-121.2"/>
+<text xml:space="preserve" text-anchor="middle" x="498.71" y="-99.6" font-family="Helvetica,sans-Serif" font-size="12.00">Is this the best so far?</text>
+</g>
+<!-- Log&#45;&gt;Compare -->
+<g id="edge16" class="edge">
+<title>Log-&gt;Compare</title>
+<path fill="none" stroke="black" d="M406.43,-157.77C424.24,-147.43 446.68,-134.4 464.98,-123.78"/>
+<polygon fill="black" stroke="black" points="466.73,-126.81 473.63,-118.76 463.22,-120.75 466.73,-126.81"/>
+</g>
+<!-- Compare&#45;&gt;HybridLoopStart -->
+<g id="edge18" class="edge">
+<title>Compare-&gt;HybridLoopStart</title>
+<path fill="none" stroke="black" d="M517.04,-118.85C531.31,-132.01 548.71,-152.75 548.71,-175.6 548.71,-485 548.71,-485 548.71,-485 548.71,-507.48 547.12,-514.86 534.71,-533.6 531.76,-538.06 528.2,-542.28 524.34,-546.22"/>
+<polygon fill="black" stroke="black" points="522.16,-543.47 517.2,-552.83 526.92,-548.6 522.16,-543.47"/>
+<text xml:space="preserve" text-anchor="middle" x="583.86" y="-333.1" font-family="Helvetica,sans-Serif" font-size="11.00">No / Next ratio</text>
+</g>
+<!-- UpdateBest -->
+<g id="node17" class="node">
+<title>UpdateBest</title>
+<polygon fill="none" stroke="black" points="650.08,-36 495.34,-36 495.34,0 650.08,0 650.08,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="572.71" y="-14.4" font-family="Helvetica,sans-Serif" font-size="12.00">Update best-hybrid record</text>
+</g>
+<!-- Compare&#45;&gt;UpdateBest -->
+<g id="edge17" class="edge">
+<title>Compare-&gt;UpdateBest</title>
+<path fill="none" stroke="black" d="M512.28,-86.94C522.69,-75.24 537.29,-58.82 549.53,-45.05"/>
+<polygon fill="black" stroke="black" points="552.14,-47.4 556.17,-37.6 546.91,-42.74 552.14,-47.4"/>
+<text xml:space="preserve" text-anchor="middle" x="549.62" y="-57.3" font-family="Helvetica,sans-Serif" font-size="11.00">Yes</text>
+</g>
+<!-- UpdateBest&#45;&gt;HybridLoopStart -->
+<g id="edge19" class="edge">
+<title>UpdateBest-&gt;HybridLoopStart</title>
+<path fill="none" stroke="black" d="M601.95,-36.25C622.64,-50.88 646.71,-73.98 646.71,-102.2 646.71,-485 646.71,-485 646.71,-485 646.71,-527.65 604.05,-550.62 562.11,-562.89"/>
+<polygon fill="black" stroke="black" points="561.4,-559.46 552.67,-565.46 563.23,-566.21 561.4,-559.46"/>
+<text xml:space="preserve" text-anchor="middle" x="670.24" y="-290.1" font-family="Helvetica,sans-Serif" font-size="11.00">Next ratio</text>
+</g>
+<!-- FinalEval -->
+<g id="node19" class="node">
+<title>FinalEval</title>
+<polygon fill="none" stroke="black" points="520.8,-428.6 142.62,-428.6 142.62,-391.8 520.8,-391.8 520.8,-428.6"/>
+<text xml:space="preserve" text-anchor="middle" x="331.71" y="-413.8" font-family="Helvetica,sans-Serif" font-size="12.00">Final evaluation &amp; Confusion matrix</text>
+<text xml:space="preserve" text-anchor="middle" x="331.71" y="-399.4" font-family="Helvetica,sans-Serif" font-size="12.00">Generate report &amp; explainability (feature importances, interpretation)</text>
+</g>
+<!-- RetrainFinal&#45;&gt;FinalEval -->
+<g id="edge21" class="edge">
+<title>RetrainFinal-&gt;FinalEval</title>
+<path fill="none" stroke="black" d="M385.91,-465.25C377.34,-456.71 366.91,-446.3 357.49,-436.91"/>
+<polygon fill="black" stroke="black" points="360.17,-434.64 350.62,-430.06 355.23,-439.6 360.17,-434.64"/>
+</g>
+<!-- Deploy -->
+<g id="node20" class="node">
+<title>Deploy</title>
+<polygon fill="none" stroke="black" points="453.09,-354.8 210.33,-354.8 210.33,-318 453.09,-318 453.09,-354.8"/>
+<text xml:space="preserve" text-anchor="middle" x="331.71" y="-340" font-family="Helvetica,sans-Serif" font-size="12.00">Deploy / Integrate</text>
+<text xml:space="preserve" text-anchor="middle" x="331.71" y="-325.6" font-family="Helvetica,sans-Serif" font-size="12.00">Dashboard / Faculty insights / Action items</text>
+</g>
+<!-- FinalEval&#45;&gt;Deploy -->
+<g id="edge22" class="edge">
+<title>FinalEval-&gt;Deploy</title>
+<path fill="none" stroke="black" d="M331.71,-391.45C331.71,-383.89 331.71,-374.86 331.71,-366.38"/>
+<polygon fill="black" stroke="black" points="335.21,-366.46 331.71,-356.46 328.21,-366.46 335.21,-366.46"/>
+</g>
+<!-- Deploy&#45;&gt;End -->
+<g id="edge23" class="edge">
+<title>Deploy-&gt;End</title>
+<path fill="none" stroke="black" d="M331.71,-317.59C331.71,-306.64 331.71,-292.36 331.71,-279.87"/>
+<polygon fill="black" stroke="black" points="335.21,-280.13 331.71,-270.13 328.21,-280.13 335.21,-280.13"/>
+</g>
+</g>
+</svg>
